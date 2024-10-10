@@ -73,6 +73,7 @@
     <Compile Include="DataProvider.cs" />
     <Compile Include="DatYeuCauDAL.cs" />
     <Compile Include="HoaDonNhapDAL.cs" />
+    <Compile Include="HoaDonYeuCauDAL.cs" />
     <Compile Include="KhachHangDAL.cs" />
     <Compile Include="LoaiXeDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />

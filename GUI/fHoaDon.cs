@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
+using DAL;
 using DTO;
 using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -20,6 +21,7 @@ namespace GUI
         string idLogin;
         private Font font = new Font("Segoe UI", 12, FontStyle.Bold);
         private Font fontSub = new Font("Segoe UI", 10, FontStyle.Regular);
+        private HoaDonYeuCauBLL hoaDonYeuCauBLL;
         public int CornerRadius { get; set; } = 20;
         public Color BorderColor { get; set; } = Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(242)))));
         public float BorderThickness { get; set; } = 0.5f;
@@ -28,10 +30,13 @@ namespace GUI
         public fHoaDon(string idLogin)
         {
             InitializeComponent();
+            hoaDonYeuCauBLL = new HoaDonYeuCauBLL();
 
             SetupDataGridView();
 
             SetupDataGridViewCMS();
+
+            ListHoaDon();
 
             panelChiTiet.Location = panelPos;
             panelChiTiet.Visible = false;
@@ -224,6 +229,15 @@ namespace GUI
             panelChiTiet.Visible = true;
             panelDSHoaDon.Visible = false;
 
+            DataGridViewRow selectedRow = dgvHoaDon.Rows[rowIndex];
+
+            txtMaBooking.Text = selectedRow.Cells["MaBooking"].Value.ToString();
+            txtTenKH.Text = selectedRow.Cells["TenKH"].Value.ToString();
+            txtMaKH.Text = selectedRow.Cells["MaKhachHang"].Value.ToString();
+            txtMaNV.Text = selectedRow.Cells["MaNV"].Value.ToString();
+            txtNgayIn.Text = selectedRow.Cells["NgayIn"].Value.ToString();
+            lbTongTien.Text = selectedRow.Cells["TongTien"].Value.ToString();
+
             //lay thong tin bang rowIndex
         }
 
@@ -319,5 +333,19 @@ namespace GUI
                 e.Graphics.DrawLine(pen, 0, 0, panel.Width, 0); // Vẽ đường từ (0,0) đến (panel.Width, 0)
             }
         }
+
+        #region
+
+        private void ListHoaDon()
+        {
+            dgvHoaDon.Rows.Clear();
+            List<HoaDonYeuCauDTO> dsHoaDon = hoaDonYeuCauBLL.GetListHoaDon();
+            foreach (var hoaDon in dsHoaDon)
+            {
+                dgvHoaDon.Rows.Add(hoaDon.MaSuaChua, hoaDon.TenKhachHang, hoaDon.MaXe,hoaDon.MaNhanVien,hoaDon.NgayIn,hoaDon.TongTien,hoaDon.MaKhachHang);
+            }
+        }
+
+        #endregion
     }
 }

@@ -388,7 +388,8 @@ namespace GUI
 			if(rowIndex >= 0)
 			{
 				string MaSuaChua = dgvYeuCau.Rows[rowIndex].Cells["MaBooking"].Value.ToString();
-				datYeuCauBLL.DeleteYeuCau(MaSuaChua);
+				string MaXe = dgvYeuCau.Rows[rowIndex].Cells["MaXe"].Value.ToString();
+				datYeuCauBLL.DeleteYeuCau(MaSuaChua,MaXe);
 
 				ListYeuCau();
 				dgvYeuCau.Refresh();

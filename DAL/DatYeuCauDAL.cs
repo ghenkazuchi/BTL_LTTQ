@@ -57,11 +57,12 @@ namespace DAL
             return result > 0;
         }
 
-        public bool DeleteYeuCau(string MaSuaChua)
+        public bool DeleteYeuCau(string MaSuaChua,string MaXe)
         {
-            string query = "delete from YEUCAUSUACHUA where MaSuaChua = @masuachua";
+            string query = "delete from YEUCAUSUACHUA where MaSuaChua = @masuachua " + "delete from XEMAY where MaXe = @maxe ";
             object[] parameters = new object[]{
                 MaSuaChua
+               ,MaXe
             };
             int result = DataProvider.Instance.ExecuteNonQuery(query,parameters);
             return result > 0;

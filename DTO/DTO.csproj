@@ -72,6 +72,7 @@
     <Compile Include="DatYeuCauDTO.cs" />
     <Compile Include="GiaiPhapDTO.cs" />
     <Compile Include="HoaDonNhapDTO.cs" />
+    <Compile Include="HoaDonYeuCauDTO.cs" />
     <Compile Include="KhachHangDTO.cs" />
     <Compile Include="LoaiXeDTO.cs" />
     <Compile Include="NhanVienDTO.cs" />

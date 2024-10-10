@@ -25,9 +25,9 @@ namespace BLL
         {
             return datYeuCauDAL.AddYeuCau(TenKhachHang, BienSo, TenNguyenNhan, NgaySua, DiaChi, SoDienThoai);
         }
-        public bool DeleteYeuCau(string MaSuaChua)
+        public bool DeleteYeuCau(string MaSuaChua,string MaXe)
         {
-            return datYeuCauDAL.DeleteYeuCau(MaSuaChua);
+            return datYeuCauDAL.DeleteYeuCau(MaSuaChua,MaXe);
         }
         public string ReturnTenKhachHang(string SoDienThoai)
         {

@@ -69,6 +69,7 @@
     <Compile Include="ChiTietHoaDonNhapBLL.cs" />
     <Compile Include="DatYeuCauBLL.cs" />
     <Compile Include="HoaDonNhapBLL.cs" />
+    <Compile Include="HoaDonYeuCauBLL.cs" />
     <Compile Include="KhachHangBLL.cs" />
     <Compile Include="LoaiXeBLL.cs" />
     <Compile Include="NhanVienBLL.cs" />
